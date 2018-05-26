@@ -26,6 +26,6 @@ if(process.env.NODE_ENV === 'production'){
 const port = process.env.PORT || 5000
 const server = http.createServer(app)
 
-server.listen(5000,() => {
+server.listen(port,() => {
 	console.log("Server listening on port 5000")
 });
