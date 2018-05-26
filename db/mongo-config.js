@@ -1,10 +1,15 @@
 var mongoose = require('mongoose')
+const {MONGODB_URI} = require('../config/keys')
 mongoose.Promise= global.Promise;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://priyankkodesia:coursera123@ds261828.mlab.com:61828/practise',(err,res) => {
-				console.log("Successfully connected to DB")
-});
-
+console.log(MONGODB_URI)
+mongoose.connect(MONGODB_URI)
+		.then((response)=> {
+				console.log("Successfully connected to DB")})
+		.catch((error) => {
+			console.log("Cannot connect to the database with error: ",error)
+		});
+		
 module.exports={
 	mongoose
 }
